@@ -1,5 +1,6 @@
 import { ReactNode, useEffect, useState } from "react";
 import { DifficultyBadge } from "../ui/DifficultyBadge";
+import { DevAlert } from "../ui/DevAlert";
 import { motion } from "framer-motion";
 
 interface PageContainerProps {
@@ -54,6 +55,8 @@ export function PageContainer({ title, subtitle, difficulty, timeToRead, childre
             </p>
           )}
         </header>
+
+        <DevAlert />
 
         <article className="prose prose-lg max-w-none">
           {children}
