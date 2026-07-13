@@ -1,0 +1,126 @@
+import{j as a}from"./index-DBOU_NJv.js";import{P as o}from"./PageContainer-BDoc6Xey.js";import"./proxy-DdRZDCJc.js";function r(){return a.jsxs(o,{title:"Arrays",subtitle:"Listas ordenadas de elementos",difficulty:"iniciante",timeToRead:"12 min",children:[a.jsx("h2",{children:"O que são Arrays?"}),a.jsx("p",{children:"Arrays são estruturas que armazenam múltiplos valores em uma única variável. Cada valor tem um índice numérico começando de 0."}),a.jsx("h2",{children:"Criando Arrays"}),a.jsx("pre",{children:a.jsx("code",{children:`// Array literal (mais comum)
+const frutas = ["maçã", "banana", "laranja"];
+
+// Com construtor
+const numeros = new Array(1, 2, 3, 4, 5);
+
+// Array vazio
+const vazio = [];
+const tambemVazio = new Array();
+
+// Array com tipos mistos
+const misto = [1, "texto", true, null, { nome: "João" }];`})}),a.jsx("h2",{children:"Acessando Elementos"}),a.jsx("pre",{children:a.jsx("code",{children:`const frutas = ["maçã", "banana", "laranja"];
+
+// Por índice
+console.log(frutas[0]);  // "maçã"
+console.log(frutas[1]);  // "banana"
+console.log(frutas[2]);  // "laranja"
+
+// Índice inválido
+console.log(frutas[10]);  // undefined
+
+// Último elemento
+console.log(frutas[frutas.length - 1]);  // "laranja"
+console.log(frutas.at(-1));  // "laranja" (ES2022)`})}),a.jsx("h2",{children:"Propriedade length"}),a.jsx("pre",{children:a.jsx("code",{children:`const frutas = ["maçã", "banana", "laranja"];
+
+console.log(frutas.length);  // 3
+
+// Último índice
+console.log(frutas.length - 1);  // 2
+
+// Percorrer array
+for (let i = 0; i < frutas.length; i++) {
+  console.log(frutas[i]);
+}`})}),a.jsx("h2",{children:"Adicionando Elementos"}),a.jsx("pre",{children:a.jsx("code",{children:`const frutas = ["maçã"];
+
+// push - adiciona ao final
+frutas.push("banana");
+console.log(frutas);  // ["maçã", "banana"]
+
+// unshift - adiciona ao início
+frutas.unshift("uva");
+console.log(frutas);  // ["uva", "maçã", "banana"]
+
+// Por índice (cria "buracos")
+frutas[5] = "manga";
+console.log(frutas);  // ["uva", "maçã", "banana", empty × 2, "manga"]`})}),a.jsx("h2",{children:"Removendo Elementos"}),a.jsx("pre",{children:a.jsx("code",{children:`const frutas = ["uva", "maçã", "banana", "laranja"];
+
+// pop - remove do final
+const ultima = frutas.pop();
+console.log(ultima);   // "laranja"
+console.log(frutas);   // ["uva", "maçã", "banana"]
+
+// shift - remove do início
+const primeira = frutas.shift();
+console.log(primeira);  // "uva"
+console.log(frutas);    // ["maçã", "banana"]
+
+// splice - remove em qualquer posição
+frutas.splice(1, 1);  // remove 1 elemento a partir do índice 1`})}),a.jsx("h2",{children:"splice() - Swat Knife"}),a.jsx("pre",{children:a.jsx("code",{children:`const numeros = [1, 2, 3, 4, 5];
+
+// Remover
+numeros.splice(2, 1);  // remove 1 elemento no índice 2
+console.log(numeros);  // [1, 2, 4, 5]
+
+// Adicionar
+numeros.splice(2, 0, 3);  // insere 3 no índice 2
+console.log(numeros);  // [1, 2, 3, 4, 5]
+
+// Substituir
+numeros.splice(1, 1, 10, 20);  // remove 1 e adiciona 10, 20
+console.log(numeros);  // [1, 10, 20, 3, 4, 5]
+
+// Retorna elementos removidos
+const removidos = numeros.splice(0, 2);
+console.log(removidos);  // [1, 10]`})}),a.jsx("h2",{children:"slice() - Extrair"}),a.jsx("pre",{children:a.jsx("code",{children:`const frutas = ["maçã", "banana", "laranja", "uva", "manga"];
+
+// Extrair parte (não modifica original)
+const algumas = frutas.slice(1, 3);
+console.log(algumas);  // ["banana", "laranja"]
+console.log(frutas);    // original intacto
+
+// Do índice X até o final
+const ultimas = frutas.slice(2);
+console.log(ultimas);  // ["laranja", "uva", "manga"]
+
+// Índices negativos
+const finais = frutas.slice(-2);
+console.log(finais);  // ["uva", "manga"]`})}),a.jsx("h2",{children:"Percorrendo Arrays"}),a.jsx("pre",{children:a.jsx("code",{children:`const frutas = ["maçã", "banana", "laranja"];
+
+// for clássico
+for (let i = 0; i < frutas.length; i++) {
+  console.log(frutas[i]);
+}
+
+// for...of (mais simples)
+for (const fruta of frutas) {
+  console.log(fruta);
+}
+
+// forEach
+frutas.forEach((fruta, indice) => {
+  console.log(\`\${indice}: \${fruta}\`);
+});
+
+// map (cria novo array)
+const maiusculas = frutas.map(f => f.toUpperCase());
+console.log(maiusculas);  // ["MAÇÃ", "BANANA", "LARANJA"]`})}),a.jsx("h2",{children:"Verificando Existência"}),a.jsx("pre",{children:a.jsx("code",{children:`const frutas = ["maçã", "banana", "laranja"];
+
+// includes - existe?
+console.log(frutas.includes("banana"));  // true
+console.log(frutas.includes("uva"));     // false
+
+// indexOf - posição (ou -1 se não existir)
+console.log(frutas.indexOf("banana"));   // 1
+console.log(frutas.indexOf("uva"));       // -1
+
+// find - encontrar elemento
+const numeros = [1, 2, 3, 4, 5];
+const encontrado = numeros.find(n => n > 3);
+console.log(encontrado);  // 4
+
+// some - algum satisfaz?
+console.log(numeros.some(n => n > 10));  // false
+
+// every - todos satisfazem?
+console.log(numeros.every(n => n > 0));  // true`})})]})}export{r as default};
