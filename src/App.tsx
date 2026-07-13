@@ -1,5 +1,5 @@
 import { lazy, Suspense, useState, useEffect } from "react";
-import { Route, Switch, wouter } from "wouter";
+import { Route, Switch, Router } from "wouter";
 import { useHashLocation } from "wouter/use-hash-location";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Sidebar } from "@/components/layout/Sidebar";
@@ -127,7 +127,7 @@ function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Router() {
+function AppRouter() {
   return (
     <Layout>
       <ErrorBoundary>
@@ -239,9 +239,9 @@ const queryClient = new QueryClient({
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <wouter hook={useHashLocation}>
-        <Router />
-      </wouter>
+      <Router hook={useHashLocation}>
+        <AppRouter />
+      </Router>
     </QueryClientProvider>
   );
 }
